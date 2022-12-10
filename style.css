@@ -1,9 +1,76 @@
+:root {
+  --primary-text-color: hsl(237, 12%, 33%);
+  --secondary-text-color: hsl(240, 6%, 50%);
+  --divider-color: hsl(240, 5%, 91%)
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
 }
 
 ul {
   list-style-type: none;
+}
+
+/* temp start */
+
+.faqs {
+  margin: 1em;
+}
+
+/* temp end */
+
+.faqs li {
+  margin-bottom: 1em;
+  cursor: pointer;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.faq-title {
+  color: var(--primary-text-color);
+  position: relative;
+  padding-right: 2em;
+}
+
+.faq-title::after {
+  content: "";
+  width: 0.85rem;
+  height: 0.85rem;
+  background-image: url("./images/icon-arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  right: 0;
+  transition: transform ease-in 0.2s;
+}
+
+.faq-content {
+  color: var(--secondary-text-color);
+  font-size: 0.89rem;
+  margin-top: 0.5em;
+  display: none;
+}
+
+li[active] .faq-title::after {
+  transform: rotate(180deg);
+}
+
+li[active] .faq-content {
+  display: block;
+  animation: fade-in 0.2s forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
